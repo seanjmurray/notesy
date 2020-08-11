@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js && eslint libs"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/seanjmurray/notesy/issues"
   },
-  "homepage": "https://github.com/seanjmurray/notesy#readme"
+  "homepage": "https://github.com/seanjmurray/notesy#readme",
+  "dependencies": {
+    "eslint": "^7.6.0",
+    "minimist": "^1.2.5"
+  }
 }
