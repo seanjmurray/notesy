@@ -4,8 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint index.js && eslint libs"
+    "start": "node index.js",
+    "lint": "eslint index.js && eslint libs",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary", 
+      "text",
+      "lcov"
+    ]
   },
   "repository": {
     "type": "git",
@@ -18,7 +29,10 @@
   },
   "homepage": "https://github.com/seanjmurray/notesy#readme",
   "dependencies": {
-    "eslint": "^7.6.0",
     "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "jest": "^26.3.0"
   }
 }
