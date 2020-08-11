@@ -1,8 +1,6 @@
 # Notesy
 [![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/seanjmurray/notesy)
-
 [![Build Status](https://travis-ci.com/seanjmurray/notesy.svg?branch=master)](https://travis-ci.com/seanjmurray/notesy)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/seanjmurray/notesy/blob/master/LICENSE)
 
 ## Installation 
