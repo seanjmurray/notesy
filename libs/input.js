@@ -19,22 +19,45 @@ class Input {
     const argsMap = {
       a: 'add',
       add: 'add',
+      l: 'list',
+      list: 'list',
+      d: 'delete',
+      delete: 'delete',
     };
+
+    const category = obj.c || obj.category;
+
     let arg = Object.keys(obj).filter(arg => argsMap[arg])[0];
+
+    const payload = typeof obj[arg] === 'string' ? obj[arg] : undefined ;
+
     const command = {
       action: argsMap[arg],
-      payload: obj[arg],
+      payload: payload,
+      category: category,
     };
     return command;
   }
   /**
    * @returns {Boolean}
    */
-  valid(){
-    const { action, payload } = this.command;
-    // Double negative first converts to boolean, then checks and returns boolean value 
-    return !!(action && payload);
+  valid() {
+    if (!this.command.action) { return false; }
+    if (this.command.action == 'add') {
+      if (!this.command.payload) {
+        return false;
+      }
+    }
+    if (this.command.action == 'delete') {
+      if (!this.command.payload) {
+        return false;
+      }
+    }
+
+    return true;
+
   }
 }
+
 
 module.exports = Input;
