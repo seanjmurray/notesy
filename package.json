@@ -13,7 +13,7 @@
   },
   "jest": {
     "coverageReporters": [
-      "json-summary", 
+      "json-summary",
       "text",
       "lcov"
     ]
@@ -29,9 +29,12 @@
   },
   "homepage": "https://github.com/seanjmurray/notesy#readme",
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "mongoose": "^5.9.28",
+    "only": "0.0.2"
   },
   "devDependencies": {
+    "@code-fellows/supergoose": "^1.0.2",
     "eslint": "^7.6.0",
     "jest": "^26.3.0"
   }

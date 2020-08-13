@@ -2,7 +2,6 @@
 [![Version](https://img.shields.io/badge/version-1.1.0-brightgreen.svg)](https://github.com/seanjmurray/notesy)
 [![Build Status](https://travis-ci.com/seanjmurray/notesy.svg?branch=master)](https://travis-ci.com/seanjmurray/notesy)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/seanjmurray/notesy/blob/master/LICENSE)
-![Coverage](././coverage/badge-lines.svg)
 ## Installation 
 
 To install the app run the following:
@@ -39,3 +38,4 @@ $ node . --add "This is the note"
 ## Changelog
 - 2020-08-10 Add files and start README
 - 2020-08-11 Refactor to ES6 classes and add tests
+- 2020-08-12 Add CRUD to note class with mongoose
