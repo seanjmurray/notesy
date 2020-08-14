@@ -1,5 +1,5 @@
 'use strict';
-const NotesModel = require('./note-schema');
+const NotesCRUD = require('./model/note-collection');
 /**
  * @constructor
  * Creates Note object
@@ -26,36 +26,23 @@ class Note {
   /**
    * Adds the new note
    * @function
+   * @param {{Input}}
    */
   async add(obj) {
-    const { category, payload } = obj;
-    const note = new NotesModel({
-      category: category,
-      text: payload,
-    });
-    let saved = await note.save();
-    return saved;
+    let added = await NotesCRUD.create(obj);
+    return added;
   }
   async list(str) {
-    if(str){
-      const notes = await NotesModel.find({category: str});
-      notes.forEach(obj => {
-        console.log(obj.text);
-        console.log(`Category: ${obj.category} ID: ${obj._id}`);
-        console.log('--------------------------------------------------');
-      });
-    }else{
-      const notes = await NotesModel.find({});
-      notes.forEach(obj => {
-        console.log(obj.text);
-        console.log(`Category: ${obj.category} ID: ${obj._id}`);
-        console.log('--------------------------------------------------');
-      });
-    }
+    const notes = await NotesCRUD.get(str);
+    notes.forEach(obj => {
+      console.log(obj.text);
+      console.log(`Category: ${obj.category} ID: ${obj._id}`);
+      console.log('--------------------------------------------------');
+    });
   }
-  async delete(str) {
-    await NotesModel.findByIdAndDelete(str);
-    console.log(`Deleted Note: ${str}`);
+  async delete(id) {
+    await NotesCRUD.delete(id);
+    console.log(`Deleted Note: ${id}`);
   }
 }
 

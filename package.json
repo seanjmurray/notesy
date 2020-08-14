@@ -1,8 +1,9 @@
 {
-  "name": "notesy",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@seanjmurray/notesy",
+  "version": "1.0.1",
+  "description": "A simple note CL app using mongodb",
   "main": "index.js",
+  "bin": { "notes": "index.js" },
   "scripts": {
     "start": "node index.js",
     "lint": "eslint index.js && eslint libs",

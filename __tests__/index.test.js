@@ -96,12 +96,19 @@ describe('Parse delete', () => {
     expect(command.action).toBe('delete');
     expect(command.payload).toBe('someid');
   });
+
 });
 
 describe('Validate', () => {
 
   it('valid() respects a proper object', () => {
     let options = new Input();
+    expect(options.valid()).toBe(true);
+  });
+
+  it('valid() respects an invalid object', () => {
+    let options = new Input();
+    options.command = { action: 'delete', payload: 'someid' }; // break it
     expect(options.valid()).toBe(true);
   });
 
@@ -116,6 +123,12 @@ describe('Validate', () => {
     options.command = { action: 'add', payload: undefined }; // break it
     expect(options.valid()).toBe(false);
   });
+  it('valid() rejects an invalid object', () => {
+    let options = new Input();
+    options.command = { action: 'delete', payload: undefined }; // break it
+    expect(options.valid()).toBe(false);
+  });
+  
 
 });
 
